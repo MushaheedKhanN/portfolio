@@ -67,18 +67,18 @@ const MyProfile = () => {
         },
         {
             title: "CSS",
-            rating: 90,
+            rating: 80,
             tooltip: "CSS",
 
         },
         {
             title: "JS",
-            rating: 100,
+            rating: 80,
             tooltip: "JavaScript"
         },
         {
             title: "React",
-            rating: 50,
+            rating: 90,
             tooltip: "React+typescript"
 
         },
