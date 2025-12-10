@@ -150,7 +150,7 @@ const MyProfile = () => {
                 {details?.map((ele) =>
                     <div className="grid grid-cols-2 justify-start items-center">
                         <p className="p-2 bg-amber-400 m-1 font-serif">{ele?.title}</p>
-                        <p className="font-mono">{ele?.value}</p>
+                        <p className="font-mono !text-black">{ele?.value}</p>
                     </div>
                 )}
             </div>

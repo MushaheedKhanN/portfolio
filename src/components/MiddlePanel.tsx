@@ -119,7 +119,7 @@ const MiddlePanel = () => {
               children={
                 <>
                   <p className='text-start mb-1 font-serif text-xl !text-black'>{ele?.project_name}</p>
-                  <p className='font-mono'>{ele?.role}</p>
+                  <p className='font-mono !text-black'>{ele?.role}</p>
                   <CustomButton
                     label='View More'
                     onClick={() => { setViewMore(ele?.details); setOpenModal(true) }}
