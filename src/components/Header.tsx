@@ -16,7 +16,7 @@ const Header: React.FC = () => {
     <header className="w-full fixed bg-amber-400 shadow-md z-50">
       <nav className="mx-auto px-6 py-3 flex items-center justify-between">
         {/* Logo */}
-        <h1 className="text-xs font-serif text-black">My Portfolio</h1>
+        <p className="text-3xl font-serif !text-black">My Portfolio</p>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-8 text-black font-medium">

@@ -141,7 +141,7 @@ const MyProfile = () => {
 
     return (
         <div className="bg-white p-2" id="home">
-            <div className="grid p-6 justify-center">
+            <div className="grid p-6 justify-center text-center">
                 <img className="rounded-full size-48 object-cover" src={pic} alt="aura" loading="lazy" />
                 <p className="font-serif text-2xl !text-black">Mushaheed Khan N</p>
                 <p className="font-mono !text-black">Front-End Developer</p>

@@ -8,7 +8,7 @@ function Portfolio() {
     <div>
       <Header />
       <div className={cn("bg-gray-50 font-sans  md:flex lg:flex justify-between gap-2 grid grid-cols-1 mt relative top-16",)}>
-        <div className="lg:w-[30%]" >
+        <div className="lg:w-[30%]" id="home">
           <LeftPanel />
         </div>
         <div className="lg:w-[70%]">
