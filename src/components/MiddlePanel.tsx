@@ -3,6 +3,7 @@ import aura from "../../public/transparentImage.png"
 import CustomCard from '../customs/CustomCard'
 import { useState } from 'react'
 import CustomModal from '../customs/CustomModal'
+import Contacts from './Contacts'
 
 
 
@@ -78,29 +79,39 @@ const MiddlePanel = () => {
           <CustomCard
             title='Details'
             children={<>{
-              viewMore?.map((ele) => <p className='font-serif'>-{ele}</p>)
+              viewMore?.map((ele) =>
+                <div className='flex justify-start gap-1 items-start'>
+                  <span className='mt-[0.15rem]'>→</span>
+                  <span className='font-mono text-base p-1'>{ele}</span>
+                </div>
+              )
             }</>}
           />
         }
       />
-      <div className='bg-white p-2 flex justify-between rounded-md'>
+      <div className='bg-white p-2  lg:flex lg:!justify-between rounded-md'>
 
         <div>
-          <h1 className='font-extrabold mt-1 mb-1 !text-black'>i'm Mushaheed <p> <span className='text-3xl text-amber-400'>Front-End</span> <span>Developer</span>  </p></h1>
-          <p className='font-serif mb-2 !text-black'>React Developer with approximately 3 years of experience in building, maintaining, and enhancing web
+          <h1 className='font-extrabold mt-1 mb-1 !text-black'>I'm Mushaheed Khan N <p> <span className='font-mono text-amber-400'>Front-End</span> <span>Developer</span>  </p></h1>
+          <p className='font-mono mb-2 !text-black'>React Developer with approximately 3 years of experience in building, maintaining, and enhancing web
             applications and software architecture. Proficient in React.js and React Typescript, with a strong
             background in developing scalable, high-performance solutions. Currently serving as a UI Lead,
             demonstrating expertise in leading teams, driving front-end development strategies, and delivering
             successful projects. Experienced in collaborating with cross-functional teams, ensuring seamless
             integration of UI components, and maintaining code quality through best practices. Passionate about
             creating intuitive user experiences and continuously improving development processes</p>
-          <CustomButton label="Hire me →" />
+          <CustomButton label="Hire me →" onClick={() => {
+            const section = document.getElementById("contact");
+            if (section) {
+              section.scrollIntoView({ behavior: "smooth" });
+            }
+          }} />
         </div>
-        <img className='w-[22%] rounded-full' src={aura} height={5} width={100} alt="" />
+        <img className='lg:w-[22%] w-full rounded-full self-center' src={aura} height={5} width={100} alt="" />
 
       </div>
-      <h1 className='text-start mb-1 font-serif text-2xl !text-black'>My Projects</h1>
-      <div className='grid grid-cols-3 gap-2 mt-2'>
+      <h1 className='text-start mb-1 mt-3 font-serif text-2xl !text-black' id='projects'>My Projects</h1>
+      <div className='grid lg:grid-cols-3 grid-cols-1 md:grid-cols-2 gap-2 mt-2'>
         {
           projects?.map((ele) =>
             <CustomCard
@@ -108,7 +119,7 @@ const MiddlePanel = () => {
               children={
                 <>
                   <p className='text-start mb-1 font-serif text-xl !text-black'>{ele?.project_name}</p>
-                  <p>{ele?.role}</p>
+                  <p className='font-mono'>{ele?.role}</p>
                   <CustomButton
                     label='View More'
                     onClick={() => { setViewMore(ele?.details); setOpenModal(true) }}
@@ -119,6 +130,7 @@ const MiddlePanel = () => {
           )
         }
       </div>
+      <Contacts />
     </>
   )
 }

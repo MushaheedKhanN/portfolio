@@ -1,5 +1,5 @@
 import type { FC } from "react";
-import pic from "../../public/shared image (1).jpg"
+import pic from "../../public/shared image.jpg"
 import { Progress } from 'antd';
 import { ArrowBigRight } from "lucide-react"
 
@@ -140,17 +140,17 @@ const MyProfile = () => {
     ]
 
     return (
-        <div className="bg-white p-2">
-            <div className="grid p-8 justify-center">
+        <div className="bg-white p-2" id="home">
+            <div className="grid p-6 justify-center">
                 <img className="rounded-full size-48 object-cover" src={pic} alt="aura" loading="lazy" />
                 <p className="font-serif text-2xl !text-black">Mushaheed Khan N</p>
                 <p className="font-mono !text-black">Front-End Developer</p>
             </div>
-            <div>
+            <div id="skills">
                 {details?.map((ele) =>
                     <div className="grid grid-cols-2 justify-start items-center">
                         <p className="p-2 bg-amber-400 m-1 font-serif">{ele?.title}</p>
-                        <p>{ele?.value}</p>
+                        <p className="font-mono">{ele?.value}</p>
                     </div>
                 )}
             </div>
@@ -159,11 +159,11 @@ const MyProfile = () => {
             <div className="border border-double border-gray-100 mt-3 mb-3" />
             <ProgressBar data={skills} title="Skills" />
             <div className="border border-double border-gray-100 mt-3 mb-3" />
-            <div>
-                <p className="text-start mb-1 font-serif text-2xl">Extra Skills</p>
+            <p className="text-start mb-1 font-serif text-2xl">Extra Skills</p>
+            <div className="grid grid-cols-2">
                 {
                     extraSkills?.map((ele) =>
-                        <div className="flex justify-start items-center gap-1">
+                        <div className="flex justify-start items-start gap-1">
                             <ArrowBigRight color={commonColor} />
                             <p className="font-mono text-start !text-black" title={ele?.tooltip}>{ele?.title}</p>
                         </div>

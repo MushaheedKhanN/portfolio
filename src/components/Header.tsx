@@ -1,20 +1,49 @@
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-const Header = () => {
+const Header: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleScroll = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+    setOpen(false); // close mobile menu after clicking
+  };
+
   return (
-    <header className="text-white px-8 py-10 flex flex-col md:flex-row justify-between items-center bg-gray-900">
-      <div>
-        <h1 className="text-4xl font-bold">Elias</h1>
-        <p className="text-purple-500">
-          web designer & front-end developer
-        </p>
-        <p className="mt-2 text-gray-400">We craft responsive websites using modern technologies</p>
-        <button className="mt-4 px-4 py-2 border border-purple-500 text-purple-500 rounded hover:bg-purple-500 hover:text-white transition">
-          Contact me
+    <header className="w-full fixed bg-amber-400 shadow-md z-50">
+      <nav className="mx-auto px-6 py-3 flex items-center justify-between">
+        {/* Logo */}
+        <h1 className="text-xs font-serif text-black">My Portfolio</h1>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex gap-8 text-black font-medium">
+          <li className="hover:text-white cursor-pointer" onClick={() => handleScroll("home")}>Home</li>
+          <li className="hover:text-white cursor-pointer" onClick={() => handleScroll("projects")}>Projects</li>
+          <li className="hover:text-white cursor-pointer" onClick={() => handleScroll("skills")}>Skills</li>
+          <li className="hover:text-white cursor-pointer" onClick={() => handleScroll("contact")}>Contact</li>
+        </ul>
+
+        {/* Mobile Button */}
+        <button
+          className="md:hidden"
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X size={28} /> : <Menu size={28} />}
         </button>
-      </div>
-      <div className="mt-6 md:mt-0">
-        <img src="/profile.png" alt="Elias" className="w-48 h-48 object-cover rounded-full" />
-      </div>
+      </nav>
+
+      {/* Mobile Menu Dropdown */}
+      {open && (
+        <ul className="md:hidden bg-amber-300 px-6 pb-4 text-black font-medium space-y-3">
+          <li className="cursor-pointer hover:text-white" onClick={() => handleScroll("home")}>Home</li>
+          <li className="cursor-pointer hover:text-white" onClick={() => handleScroll("projects")}>Projects</li>
+          <li className="cursor-pointer hover:text-white" onClick={() => handleScroll("skills")}>Skills</li>
+          <li className="cursor-pointer hover:text-white" onClick={() => handleScroll("contact")}>Contact</li>
+        </ul>
+      )}
     </header>
   );
 };
