@@ -12,11 +12,11 @@ const commonColor = "#FFB400"
 const ProgressBar: FC<ProgressBar> = ({ data, title }) => {
     return (
         <div>
-            <p className="text-start mb-1 font-serif text-2xl">{title}</p>
+            <p className="text-start mb-1 font-serif text-2xl !text-black">{title}</p>
             {
                 data?.map((ele) =>
                     <div className="flex justify-between gap-1">
-                        <p className="font-mono w-20 text-start" title={ele?.tooltip}>{ele?.title}</p>
+                        <p className="font-mono w-20 text-start !text-black" title={ele?.tooltip}>{ele?.title}</p>
                         <Progress percent={ele?.rating} size="small" strokeColor={commonColor} />
                     </div>
 
@@ -143,13 +143,13 @@ const MyProfile = () => {
         <div className="bg-white p-2">
             <div className="grid p-8 justify-center">
                 <img className="rounded-full size-48 object-cover" src={pic} alt="aura" loading="lazy" />
-                <p className="font-serif text-2xl">Mushaheed Khan N</p>
-                <p className="font-mono">Front-End Developer</p>
+                <p className="font-serif text-2xl !text-black">Mushaheed Khan N</p>
+                <p className="font-mono !text-black">Front-End Developer</p>
             </div>
             <div>
                 {details?.map((ele) =>
                     <div className="grid grid-cols-2 justify-start items-center">
-                        <p className="p-2 bg-amber-400 m-1 font-bold">{ele?.title}</p>
+                        <p className="p-2 bg-amber-400 m-1 font-serif">{ele?.title}</p>
                         <p>{ele?.value}</p>
                     </div>
                 )}
@@ -165,7 +165,7 @@ const MyProfile = () => {
                     extraSkills?.map((ele) =>
                         <div className="flex justify-start items-center gap-1">
                             <ArrowBigRight color={commonColor} />
-                            <p className="font-mono text-start" title={ele?.tooltip}>{ele?.title}</p>
+                            <p className="font-mono text-start !text-black" title={ele?.tooltip}>{ele?.title}</p>
                         </div>
 
                     )

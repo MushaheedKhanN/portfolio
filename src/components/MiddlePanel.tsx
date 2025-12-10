@@ -86,8 +86,8 @@ const MiddlePanel = () => {
       <div className='bg-white p-2 flex justify-between rounded-md'>
 
         <div>
-          <h1 className='font-extrabold mt-1 mb-1'>i'm Mushaheed <p> <span className='text-3xl text-amber-400'>Front-End</span> <span>Developer</span>  </p></h1>
-          <p className='font-serif mb-2'>React Developer with approximately 3 years of experience in building, maintaining, and enhancing web
+          <h1 className='font-extrabold mt-1 mb-1 !text-black'>i'm Mushaheed <p> <span className='text-3xl text-amber-400'>Front-End</span> <span>Developer</span>  </p></h1>
+          <p className='font-serif mb-2 !text-black'>React Developer with approximately 3 years of experience in building, maintaining, and enhancing web
             applications and software architecture. Proficient in React.js and React Typescript, with a strong
             background in developing scalable, high-performance solutions. Currently serving as a UI Lead,
             demonstrating expertise in leading teams, driving front-end development strategies, and delivering
@@ -96,17 +96,18 @@ const MiddlePanel = () => {
             creating intuitive user experiences and continuously improving development processes</p>
           <CustomButton label="Hire me →" />
         </div>
-        <img className='w-[22%]' src={aura} height={5} width={100} alt="" />
+        <img className='w-[22%] rounded-full' src={aura} height={5} width={100} alt="" />
 
       </div>
-      <div className='grid grid-cols-3 gap-2'>
+      <h1 className='text-start mb-1 font-serif text-2xl !text-black'>My Projects</h1>
+      <div className='grid grid-cols-3 gap-2 mt-2'>
         {
           projects?.map((ele) =>
             <CustomCard
               title={ele?.project_name}
               children={
                 <>
-                  <h6 className='font-medium'>{ele?.project_name}</h6>
+                  <p className='text-start mb-1 font-serif text-xl !text-black'>{ele?.project_name}</p>
                   <p>{ele?.role}</p>
                   <CustomButton
                     label='View More'
